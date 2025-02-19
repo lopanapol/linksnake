@@ -15,6 +15,11 @@ logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
 async def crawl(base_url, output_folder, limit):
     visited_links = set()
     queue = [base_url]
+    output_txt = f"{output_folder}/links.txt"
+
+    # Get crawl delay from robots.txt
+    crawl_delay = await check_robots_txt(base_url)
+
     async with aiohttp.ClientSession() as session:
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
@@ -28,19 +33,17 @@ async def crawl(base_url, output_folder, limit):
                 logging.info(f"Crawling: {url}")
                 visited_links.add(url)
 
+                # Save immediately after discovering a new link
+                await save_links(sorted(visited_links), output_txt)
+
                 links = await get_links_bs4(url, base_url, session) or await get_links_playwright(url, base_url, page)
 
                 queue.extend(link for link in sorted(links) if link not in visited_links)
 
+                # Respect crawl delay
+                await asyncio.sleep(crawl_delay)
+
             await browser.close()
-
-    output_txt = f"{output_folder}/links.txt"
-    output_json = f"{output_folder}/links.json"
-    output_sitemap = f"{output_folder}/sitemap.xml"
-
-    await save_links(visited_links, output_txt)
-    await export_json(visited_links, output_json)
-    await generate_sitemap(visited_links, output_sitemap)
 
 def parse_args():
     """Parse CLI arguments."""
