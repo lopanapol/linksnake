@@ -1,9 +1,15 @@
-# LinkSnake
+# LinkSnake (Community Version)
 
-URL Links Snake is a web crawler built with **Python**, **BeautifulSoup**, **Playwright**, and **aiohttp** to extract links from websites, including JavaScript-rendered pages.  
+This is the main open-source version of the project, licensed under the MIT License.
 
-## Features  
-- **Supports AJAX/JavaScript rendering** using Playwright  
-- **Asynchronous requests** with `aiohttp` for better performance  
-- **Checks `robots.txt`** before crawling  
-- **Saves extracted links** in `txt`, `json`, and `sitemap.xml` formats  
+## License
+
+The software in this branch is licensed under the **MIT License**.  
+See the [LICENSE](./LICENSE) file for details.
+
+## Premium Version
+
+A premium version with additional features is available exclusively for GitHub Sponsors.  
+To access it, please visit the `premium` branch.
+
+For more information, see [GitHub Sponsors](https://github.com/sponsors/lopanapol).
