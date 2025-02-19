@@ -9,7 +9,7 @@ def normalize_url(url):
     return f"{parsed_url.scheme}://{domain}{path}"
 
 def ensure_folder(domain):
-    """Ensure the /data/{domain}/ folder exists."""
-    folder = os.path.join("data", domain)
+    """Ensure the /linksnake-data/{domain}/ folder exists."""
+    folder = os.path.join("linksnake-data", domain)
     os.makedirs(folder, exist_ok=True)
     return folder

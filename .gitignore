@@ -12,7 +12,7 @@ build/
 develop-eggs/
 dist/
 downloads/
-data/
+linksnake-data/
 eggs/
 .eggs/
 lib/
