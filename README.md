@@ -12,4 +12,4 @@ See the [LICENSE](./LICENSE) file for details.
 A premium version with additional features is available exclusively for GitHub Sponsors.  
 To access it, please visit the `premium` branch.
 
-For more information, see [GitHub Sponsors](https://github.com/sponsors/linksnake).
+For more information, see [GitHub Sponsors](https://github.com/sponsors/lopanapol).
