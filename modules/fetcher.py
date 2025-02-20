@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 from .utils import normalize_url
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError
 
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+USER_AGENT = "LinkSnake/1.0 (+https://linksnake.io/bot-info)"
 
 async def get_links_bs4(url, base_domain, session):
     """Extract links using BeautifulSoup if JavaScript is not required."""
