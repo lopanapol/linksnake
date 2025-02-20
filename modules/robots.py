@@ -3,7 +3,7 @@ import aiohttp
 import re
 from urllib.parse import urljoin
 
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+USER_AGENT = "LinkSnake/1.0 (+https://linksnake.io/bot-info)"
 
 async def check_robots_txt(base_url):
     robots_url = f"{base_url}/robots.txt"
@@ -24,5 +24,4 @@ async def check_robots_txt(base_url):
     except Exception as e:
         logging.warning(f"Failed to fetch robots.txt: {e}")
 
-    return 1  # Default delay = 1s ถ้าไม่มี Crawl-delay
-
+    return 1
